@@ -15,8 +15,13 @@
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-
+        <Rectangle Grid.RowSpan="2" Fill="#FFE7FABF" ></Rectangle>
+        <Rectangle Grid.ColumnSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Image Source="\Resources\Безымянный.png" Grid.Row="0"></Image>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Foreground="#FF006504">Леарн - школа иностранных языков</TextBlock>
+        <TextBlock Grid.Column="1">Леарн - школа иностранных языков</TextBlock>
+        <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button x:Name="StartBtn" >Вперед</Button>
+            <Button x:Name="BackBtn" >Назад</Button>
+        </StackPanel>
     </Grid>
 </Window>

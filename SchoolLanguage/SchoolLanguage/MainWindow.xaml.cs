@@ -23,6 +23,7 @@ namespace SchoolLanguage
         public MainWindow()
         {
             InitializeComponent();
+            var path = @"C:\Users\Acer\Desktop\РПМ\Сессия 1\Услуги школы";
         }
     }
 }
