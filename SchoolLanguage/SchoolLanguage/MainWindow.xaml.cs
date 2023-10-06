@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolLanguage.MyPages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,14 +25,17 @@ namespace SchoolLanguage
         public MainWindow()
         {
             InitializeComponent();
-            var path = @"C:\Users\Acer\Desktop\РПМ\Сессия 1\";
-            foreach (var item in App.db.Service.ToArray())
-            {
-                var fullPath = path + item.MainImagePath.Trim();
-                var imageByte = File.ReadAllBytes(fullPath);
-                item.MainImage = imageByte;
-            }
-            App.db.SaveChanges();
+
+            MainFrame.Navigate(new ServiceListPage());
+
+            //var path = @"C:\Users\Acer\Desktop\РПМ\Сессия 1\";
+            //foreach (var item in App.db.Service.ToArray())
+            //{
+            //    var fullPath = path + item.MainImagePath.Trim();
+            //    var imageByte = File.ReadAllBytes(fullPath);
+            //    item.MainImage = imageByte;
+            //}
+            //App.db.SaveChanges();
         }
     }
 }

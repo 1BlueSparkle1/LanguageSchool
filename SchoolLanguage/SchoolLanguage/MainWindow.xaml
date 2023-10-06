@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolLanguage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Леарн - школа иностранных языков" Height="450" Width="850">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
@@ -18,10 +18,12 @@
         <Rectangle Grid.RowSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Image Source="\Resources\Безымянный.png" Grid.Row="0"></Image>
-        <TextBlock Grid.Column="1">Леарн - школа иностранных языков</TextBlock>
+        <TextBlock HorizontalAlignment="Center" Grid.Column="1">Леарн - школа иностранных языков</TextBlock>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button x:Name="StartBtn" >Вперед</Button>
             <Button x:Name="BackBtn" >Назад</Button>
         </StackPanel>
+
+        <Frame x:Name="MainFrame" Grid.Row="1" Grid.Column="1"></Frame>
     </Grid>
 </Window>
