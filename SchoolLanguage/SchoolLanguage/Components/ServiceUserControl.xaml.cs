@@ -24,12 +24,19 @@ namespace SchoolLanguage.Components
         public ServiceUserControl(Image image, string title, decimal Cost, string costTime, string discount, Visibility costVisibility)
         {
             InitializeComponent();
+            if (App.isAdmin == false)
+            {
+                CreateBtn.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+            }
             //ServiceImg = new BitmapImage(new  MemoryStream(image));
-            CostTb.Text = Cost.ToString();
+            CostTb.Text = Cost.ToString("0");
             TitleTb.Text = title;
             CostTimeTb.Text = costTime;
             DiscountTb.Text = discount;
             CostTb.Visibility = costVisibility;
+
+            
         }
     }
 }

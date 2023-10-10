@@ -37,5 +37,22 @@ namespace SchoolLanguage
             //}
             //App.db.SaveChanges();
         }
+
+        private void OffAdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            App.isAdmin = false;
+            MainFrame.Navigate(new ServiceListPage());
+        }
+
+        private void OnAdminBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (PasswordPb.Password == "0000")
+            {
+                App.isAdmin = true;
+                MainFrame.Navigate(new ServiceListPage());
+                PasswordPb.Clear();
+            }
+            
+        }
     }
 }

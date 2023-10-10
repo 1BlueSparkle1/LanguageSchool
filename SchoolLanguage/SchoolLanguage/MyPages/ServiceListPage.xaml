@@ -14,11 +14,11 @@
             <RowDefinition Height="314*"/>
             <RowDefinition Height="55*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="1" HorizontalAlignment="Center">
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center">
             <WrapPanel Name="ServiceWp" Grid.Row="1">
             
             </WrapPanel>
         </ScrollViewer>
-        
+        <Button x:Name="AddBtn" Grid.Row="2">Добавить</Button>
     </Grid>
 </Page>

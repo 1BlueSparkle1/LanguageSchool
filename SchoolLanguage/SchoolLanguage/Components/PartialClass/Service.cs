@@ -31,5 +31,16 @@ namespace SchoolLanguage.Components
                     return Visibility.Visible ;
             }
         }
+
+        public string DiscountStr
+        {
+            get
+            {
+                if (Discount == 0)
+                    return null;
+                else
+                    return $"^ скидка {Discount}%";
+            }
+        }
     }
 }
