@@ -27,7 +27,6 @@
             <Button x:Name="OffAdminBtn" Click="OffAdminBtn_Click">
                 <TextBlock>Выход <LineBreak></LineBreak>админа</TextBlock>
             </Button>
-            <Button x:Name="StartBtn" >Вперед</Button>
             <Button x:Name="BackBtn" >Назад</Button>
         </StackPanel>
 
