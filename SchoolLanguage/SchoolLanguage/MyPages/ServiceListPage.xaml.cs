@@ -97,5 +97,10 @@ namespace SchoolLanguage.MyPages
         {
             Refresh();
         }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage()));
+        }
     }
 }

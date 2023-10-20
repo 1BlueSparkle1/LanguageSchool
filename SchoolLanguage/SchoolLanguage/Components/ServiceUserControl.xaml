@@ -28,7 +28,7 @@
             
             <TextBlock x:Name="DiscountTb" Grid.Row="2" Grid.Column="1" ></TextBlock>
             <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                <Button x:Name="CreateBtn">Редактировать</Button>
+                <Button x:Name="CreateBtn" Click="CreateBtn_Click">Редактировать</Button>
                 <Button x:Name="DeleteBtn" Click="DeleteBtn_Click">Удалить</Button>
             </StackPanel>
         </Grid>

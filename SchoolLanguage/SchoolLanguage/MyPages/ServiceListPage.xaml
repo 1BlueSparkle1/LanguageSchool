@@ -19,7 +19,7 @@
             
             </WrapPanel>
         </ScrollViewer>
-        <Button x:Name="AddBtn" Grid.Row="2" HorizontalAlignment="Right">Добавить</Button>
+        <Button x:Name="AddBtn" Grid.Row="2" HorizontalAlignment="Right" Click="AddBtn_Click">Добавить</Button>
         <StackPanel Orientation="Horizontal">
             <TextBlock>По цене</TextBlock>
             <ComboBox x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged">

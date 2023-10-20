@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SchoolLanguage.Components;
 
 namespace SchoolLanguage
 {
@@ -25,9 +26,9 @@ namespace SchoolLanguage
         public MainWindow()
         {
             InitializeComponent();
-
-            MainFrame.Navigate(new ServiceListPage());
-
+            navigation.mainWindow = this;
+            
+            navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));   
             //var path = @"C:\Users\Acer\Desktop\РПМ\Сессия 1\";
             //foreach (var item in App.db.Service.ToArray())
             //{
@@ -41,7 +42,8 @@ namespace SchoolLanguage
         private void OffAdminBtn_Click(object sender, RoutedEventArgs e)
         {
             App.isAdmin = false;
-            MainFrame.Navigate(new ServiceListPage());
+            navigation.ClearHistory();
+            navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
         }
 
         private void OnAdminBtn_Click(object sender, RoutedEventArgs e)
@@ -49,10 +51,16 @@ namespace SchoolLanguage
             if (PasswordPb.Password == "0000")
             {
                 App.isAdmin = true;
-                MainFrame.Navigate(new ServiceListPage());
+                navigation.ClearHistory();
+                navigation.NextPage(new PageComponent("Режим админа", new ServiceListPage()));
                 PasswordPb.Clear();
             }
             
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigation.BackPage();
         }
     }
 }

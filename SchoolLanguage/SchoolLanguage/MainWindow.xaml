@@ -18,7 +18,7 @@
         <Rectangle Grid.RowSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFE7FABF" ></Rectangle>
         <Image Source="\Resources\Безымянный.png" Grid.Row="0"></Image>
-        <TextBlock HorizontalAlignment="Center" Grid.Column="1">Леарн - школа иностранных языков</TextBlock>
+        <TextBlock x:Name="TitleTb" HorizontalAlignment="Center" Grid.Column="1">Леарн - школа иностранных языков</TextBlock>
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button x:Name="OnAdminBtn" Click="OnAdminBtn_Click">
                 <TextBlock>Вход <LineBreak></LineBreak>админа</TextBlock>
@@ -27,7 +27,7 @@
             <Button x:Name="OffAdminBtn" Click="OffAdminBtn_Click">
                 <TextBlock>Выход <LineBreak></LineBreak>админа</TextBlock>
             </Button>
-            <Button x:Name="BackBtn" >Назад</Button>
+            <Button x:Name="BackBtn" Click="BackBtn_Click" >Назад</Button>
         </StackPanel>
 
         <Frame x:Name="MainFrame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
