@@ -21,22 +21,54 @@ namespace SchoolLanguage.Components
     /// </summary>
     public partial class ServiceUserControl : UserControl
     {
-        public ServiceUserControl(Image image, string title, decimal Cost, string costTime, string discount, Visibility costVisibility)
+        Service service;
+        public ServiceUserControl(Service _service)
         {
             InitializeComponent();
+            service = _service;
             if (App.isAdmin == false)
             {
                 CreateBtn.Visibility = Visibility.Hidden;
                 DeleteBtn.Visibility = Visibility.Hidden;
             }
             //ServiceImg = new BitmapImage(new  MemoryStream(image));
-            CostTb.Text = Cost.ToString("0");
-            TitleTb.Text = title;
-            CostTimeTb.Text = costTime;
-            DiscountTb.Text = discount;
-            CostTb.Visibility = costVisibility;
+            CostTb.Text = service.Cost.ToString("0");
+            TitleTb.Text = service.Title;
+            CostTimeTb.Text = service.CostTime;
+            DiscountTb.Text = service.DiscountStr;
+            CostTb.Visibility = service.CostVisibility;
+            ServiceImg.Source = GetImageSource(service.MainImage);
+            MainBorder.Background = service.DiscountBrush;
+        }
 
-            
+        private BitmapImage GetImageSource(byte[] byteImage)
+        {
+            BitmapImage bitmapImage = new BitmapImage();
+            try
+            {
+                MemoryStream byteStream = new MemoryStream(byteImage);
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = byteStream;
+                bitmapImage.EndInit();
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
+            return bitmapImage;
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if(service.ClientService != null)
+            {
+                MessageBox.Show("Удаление запрещено");
+            }
+            else
+            {
+                App.db.Service.Remove(service);
+                App.db.SaveChanges();
+            }
         }
     }
 }

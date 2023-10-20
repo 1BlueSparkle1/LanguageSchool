@@ -14,11 +14,31 @@
             <RowDefinition Height="314*"/>
             <RowDefinition Height="55*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center">
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Center" Margin="5">
             <WrapPanel Name="ServiceWp" Grid.Row="1">
             
             </WrapPanel>
         </ScrollViewer>
-        <Button x:Name="AddBtn" Grid.Row="2">Добавить</Button>
+        <Button x:Name="AddBtn" Grid.Row="2" HorizontalAlignment="Right">Добавить</Button>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>По цене</TextBlock>
+            <ComboBox x:Name="SortCb" SelectionChanged="SortCb_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возростанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По скидке</TextBlock>
+            <ComboBox x:Name="DiscountFilterCb" SelectionChanged="DiscountFilterCb_SelectionChanged">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>0% до 5%</ComboBoxItem>
+                <ComboBoxItem>5% до 15%</ComboBoxItem>
+                <ComboBoxItem>15% до 30%</ComboBoxItem>
+                <ComboBoxItem>30% до 70%</ComboBoxItem>
+                <ComboBoxItem>70% до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>По названию</TextBlock>
+            <TextBox x:Name="SearchTb" TextChanged="SearchTb_TextChanged"></TextBox>
+            <TextBlock x:Name="CountDataTb" Margin="5"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>
