@@ -100,7 +100,7 @@ namespace SchoolLanguage.MyPages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-            navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage()));
+            navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage(new Service())));
         }
     }
 }

@@ -13,26 +13,26 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Margin="20">
                     <TextBlock HorizontalAlignment="Center">Идентификатор</TextBlock>
-                    <TextBox IsEnabled="False" x:Name="IdTb"></TextBox>
-                    <Button x:Name="EditImageBtn">Изменить изображение</Button>
-                    <Image Height="150" Name="MainImage"></Image>
+                    <TextBox Text="{Binding ID}" IsEnabled="False" x:Name="IdTb"></TextBox>
+                    <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
+                    <Image Source="{Binding MainImage}" Height="150" Name="MainImage"></Image>
                 </StackPanel>
                 <StackPanel Margin="20">
                     <TextBlock HorizontalAlignment="Center">Введите название</TextBlock>
-                    <TextBox x:Name="TitleTb"></TextBox>
+                    <TextBox Height="60" TextWrapping="Wrap" Text="{Binding Title}" x:Name="TitleTb"></TextBox>
                     <TextBlock HorizontalAlignment="Center">Введите Стоимость</TextBlock>
-                    <TextBox x:Name="CostTb"></TextBox>
+                    <TextBox Text="{Binding Cost}" x:Name="CostTb"></TextBox>
                     <TextBlock HorizontalAlignment="Center">Введите размер скидки</TextBlock>
-                    <TextBox x:Name="DiscountTb"></TextBox>
+                    <TextBox Text="{Binding Discount}" x:Name="DiscountTb"></TextBox>
                 </StackPanel>
                 <StackPanel Margin="20">
-                    <TextBlock HorizontalAlignment="Center">Введите длительность</TextBlock>
-                    <TextBox x:Name="b"></TextBox>
+                    <TextBlock HorizontalAlignment="Center">Длительность сек.</TextBlock>
+                    <TextBox Text="{Binding DurationInSeconds}" x:Name="DurationInSecondsTb"></TextBox>
                     <TextBlock HorizontalAlignment="Center">Введите описание</TextBlock>
-                    <TextBox Height="150" x:Name="a"></TextBox>
+                    <TextBox Text="{Binding Description}" Height="150" x:Name="a"></TextBox>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="SaveBtn">Сохранить</Button>
+            <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
         </StackPanel>
         
     </Grid>

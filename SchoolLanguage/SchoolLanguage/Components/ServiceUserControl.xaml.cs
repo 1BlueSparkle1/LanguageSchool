@@ -44,13 +44,20 @@ namespace SchoolLanguage.Components
 
         private BitmapImage GetImageSource(byte[] byteImage)
         {
+            
             BitmapImage bitmapImage = new BitmapImage();
             try
             {
-                MemoryStream byteStream = new MemoryStream(byteImage);
-                bitmapImage.BeginInit();
-                bitmapImage.StreamSource = byteStream;
-                bitmapImage.EndInit();
+                if (service.MainImage != null)
+                {
+                    MemoryStream byteStream = new MemoryStream(byteImage);
+                    bitmapImage.BeginInit();
+                    bitmapImage.StreamSource = byteStream;
+                    bitmapImage.EndInit();
+                }
+                else 
+                    bitmapImage = new BitmapImage(new Uri(@"\Resources\Безымянный.png", UriKind.Relative));
+                
             }
             catch
             {
@@ -74,7 +81,7 @@ namespace SchoolLanguage.Components
 
         private void CreateBtn_Click(object sender, RoutedEventArgs e)
         {
-            navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage()));
+            navigation.NextPage(new PageComponent("Редактирование услуги", new AddEditServicePage(service)));
         }
     }
 }
