@@ -11,25 +11,38 @@
     <Grid>
         <StackPanel VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel Margin="20">
+                <StackPanel Margin="10">
                     <TextBlock HorizontalAlignment="Center">Идентификатор</TextBlock>
                     <TextBox Text="{Binding ID}" IsEnabled="False" x:Name="IdTb"></TextBox>
-                    <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">Изменить изображение</Button>
-                    <Image Source="{Binding MainImage}" Height="150" Name="MainImage"></Image>
+                    <Button x:Name="EditImageBtn" Click="EditImageBtn_Click">
+                        <TextBlock>Изменить<LineBreak></LineBreak> изображение</TextBlock>
+                    </Button>
+                    <Image Source="{Binding MainImage}" Height="100" Name="MainImage"></Image>
                 </StackPanel>
-                <StackPanel Margin="20">
-                    <TextBlock HorizontalAlignment="Center">Введите название</TextBlock>
+                <StackPanel Margin="10">
+                    <TextBlock HorizontalAlignment="Center">Название</TextBlock>
                     <TextBox Height="60" TextWrapping="Wrap" Text="{Binding Title}" x:Name="TitleTb"></TextBox>
-                    <TextBlock HorizontalAlignment="Center">Введите Стоимость</TextBlock>
-                    <TextBox Text="{Binding Cost}" x:Name="CostTb"></TextBox>
-                    <TextBlock HorizontalAlignment="Center">Введите размер скидки</TextBlock>
-                    <TextBox Text="{Binding Discount}" x:Name="DiscountTb"></TextBox>
+                    <TextBlock HorizontalAlignment="Center">Стоимость</TextBlock>
+                    <TextBox Text="{Binding Cost}" x:Name="CostTb" PreviewTextInput="CostTb_PreviewTextInput"></TextBox>
+                    <TextBlock HorizontalAlignment="Center">Размер скидки</TextBlock>
+                    <TextBox Text="{Binding Discount}" x:Name="DiscountTb" PreviewTextInput="CostTb_PreviewTextInput"></TextBox>
                 </StackPanel>
-                <StackPanel Margin="20">
+                <StackPanel Margin="10">
                     <TextBlock HorizontalAlignment="Center">Длительность сек.</TextBlock>
-                    <TextBox Text="{Binding DurationInSeconds}" x:Name="DurationInSecondsTb"></TextBox>
-                    <TextBlock HorizontalAlignment="Center">Введите описание</TextBlock>
+                    <TextBox Text="{Binding DurationInSeconds}" x:Name="DurationInSecondsTb" PreviewTextInput="CostTb_PreviewTextInput"></TextBox>
+                    <TextBlock HorizontalAlignment="Center">Описание</TextBlock>
                     <TextBox Text="{Binding Description}" Height="150" x:Name="a"></TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <ListView x:Name="ImageList">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn>
+                                    <Image Source="{Binding PhotoByte}"></Image>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
                 </StackPanel>
             </StackPanel>
             <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
