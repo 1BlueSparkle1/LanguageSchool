@@ -27,8 +27,10 @@ namespace SchoolLanguage.MyPages
         public AddEditServicePage(Service _service)
         {
             InitializeComponent();
+            App.servicePage = this;
             service = _service;
             this.DataContext = service;
+            RefreshPhoto();
         }
 
         private void EditImageBtn_Click(object sender, RoutedEventArgs e)
@@ -84,6 +86,45 @@ namespace SchoolLanguage.MyPages
             {
                 e.Handled = true;
             }
+        }
+
+        private void AddImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.png|*.png|*.jpg|*.jpg|*.jpeg|*.jpeg"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                App.db.ServicePhoto.Add(new ServicePhoto
+                {
+                    ServiceID = service.ID,
+                    PhotoByte = File.ReadAllBytes(openFile.FileName)
+                });
+                App.db.SaveChanges();
+                RefreshPhoto();
+            }
+        }
+        public void RefreshPhoto()
+        {
+            PhotoWp.Children.Clear();
+            foreach (var photo in service.ServicePhoto)
+            {
+                PhotoWp.Children.Add(new PhotoUserControl(photo));
+            }
+            BitmapImage bitmapImage = new BitmapImage();
+            if (service.MainImage != null)
+            {
+                MemoryStream byteStream = new MemoryStream(service.MainImage);
+                bitmapImage.BeginInit();
+                bitmapImage.StreamSource = byteStream;
+                bitmapImage.EndInit();
+                MainImage.Source = bitmapImage;
+            }
+            else
+                bitmapImage = new BitmapImage(new Uri(@"\Resources\Безымянный.png", UriKind.Relative));
+
+            
         }
     }
 }

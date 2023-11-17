@@ -102,5 +102,10 @@ namespace SchoolLanguage.MyPages
         {
             navigation.NextPage(new PageComponent("Добавление услуги", new AddEditServicePage(new Service())));
         }
+
+        private void EntriesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            navigation.NextPage(new PageComponent("Ближайшие записи", new UpcimongEntriesPage()));
+        }
     }
 }

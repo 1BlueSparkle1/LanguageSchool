@@ -1,0 +1,42 @@
+﻿<Page x:Class="SchoolLanguage.MyPages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolLanguage.MyPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="600"
+      Title="RegistrationPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Right">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Фамилия</TextBlock>
+                    <TextBox Name="LastName"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Имя</TextBlock>
+                    <TextBox Name="FirstName"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Отчество</TextBlock>
+                    <TextBox Name="Patronymic"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Дата рождения</TextBlock>
+                    <DatePicker Name="DateOfBirth"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Email</TextBlock>
+                    <TextBox Name="EmailTb"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock>Телефон</TextBlock>
+                    <TextBox Name="PhoneTb"></TextBox>
+                </StackPanel>
+                <Button Name="RegistrationBtn" Click="RegistrationBtn_Click">Зарегистрироваться</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

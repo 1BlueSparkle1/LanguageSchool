@@ -107,6 +107,8 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Components\navigation.cs" />
+    <Compile Include="Components\PartialClass\Client.cs" />
+    <Compile Include="Components\PartialClass\ClientService.cs" />
     <Compile Include="Components\PartialClass\Service.cs" />
     <Compile Include="Components\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -140,7 +142,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Components\PhotoUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\ClientRecordPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MyPages\ServiceListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MyPages\UpcimongEntriesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -149,8 +167,20 @@
     <Compile Include="MyPages\AddEditServicePage.xaml.cs">
       <DependentUpon>AddEditServicePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Components\PhotoUserControl.xaml.cs">
+      <DependentUpon>PhotoUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\ClientRecordPage.xaml.cs">
+      <DependentUpon>ClientRecordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\RegistrationPage.xaml.cs">
+      <DependentUpon>RegistrationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MyPages\ServiceListPage.xaml.cs">
       <DependentUpon>ServiceListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MyPages\UpcimongEntriesPage.xaml.cs">
+      <DependentUpon>UpcimongEntriesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

@@ -34,15 +34,10 @@
                     <TextBox Text="{Binding Description}" Height="150" x:Name="a"></TextBox>
                 </StackPanel>
                 <StackPanel>
-                    <ListView x:Name="ImageList">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn>
-                                    <Image Source="{Binding PhotoByte}"></Image>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>
+                    <ScrollViewer HorizontalAlignment="Center" HorizontalScrollBarVisibility="Disabled" Width="250" Height="250">
+                        <WrapPanel  x:Name="PhotoWp"></WrapPanel>
+                    </ScrollViewer>
+                    <Button x:Name="AddImageBtn" Click="AddImageBtn_Click">Добавить изображение</Button>
                 </StackPanel>
             </StackPanel>
             <Button x:Name="SaveBtn" Click="SaveBtn_Click">Сохранить</Button>
