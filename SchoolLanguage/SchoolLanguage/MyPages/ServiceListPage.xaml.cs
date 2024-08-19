@@ -34,6 +34,7 @@ namespace SchoolLanguage.MyPages
             }
             Refresh();
 
+            ServiceWp.Children.Clear();
             var services = App.db.Service.ToList();
             foreach (var service in services)
             {
@@ -76,11 +77,18 @@ namespace SchoolLanguage.MyPages
             }
             services = services.Where(x => x.Title.ToLower().Contains(SearchTb.Text.ToLower()) || x.Description.ToLower().Contains(SearchTb.Text.ToLower()));
             ServiceWp.Children.Clear();
-            foreach (var service in services)
+            if (services.Count() == 0)
             {
-                ServiceWp.Children.Add(new ServiceUserControl(service));
+
             }
-            CountDataTb.Text = "Записи: " + services.Count().ToString() + " из 100";
+            else
+            {
+                foreach (var service in services)
+                {
+                    ServiceWp.Children.Add(new ServiceUserControl(service));
+                }
+            }
+            CountDataTb.Text = "Записи: " + services.Count().ToString() + " из " + App.db.Service.Count();
         }
 
         private void SortCb_SelectionChanged(object sender, SelectionChangedEventArgs e)

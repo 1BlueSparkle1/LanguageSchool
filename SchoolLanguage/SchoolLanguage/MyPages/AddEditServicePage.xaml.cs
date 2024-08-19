@@ -31,8 +31,9 @@ namespace SchoolLanguage.MyPages
             service = _service;
             this.DataContext = service;
             RefreshPhoto();
+            
         }
-
+        
         private void EditImageBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog()

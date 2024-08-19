@@ -69,7 +69,7 @@ namespace SchoolLanguage.Components
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            if(service.ClientService != null)
+            if(service.ClientService.Count() != 0)
             {
                 MessageBox.Show("Удаление запрещено");
             }

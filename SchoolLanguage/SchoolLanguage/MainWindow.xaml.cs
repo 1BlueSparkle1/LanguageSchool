@@ -27,8 +27,8 @@ namespace SchoolLanguage
         {
             InitializeComponent();
             navigation.mainWindow = this;
-            
-            navigation.NextPage(new PageComponent("Регистрация", new RegistrationPage()));   
+
+            navigation.NextPage(new PageComponent("Список услуг", new ServiceListPage()));
             //var path = @"C:\Users\Acer\Desktop\РПМ\Сессия 1\";
             //foreach (var item in App.db.Service.ToArray())
             //{

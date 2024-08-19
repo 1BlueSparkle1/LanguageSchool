@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище LanguageSchoolModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище LanguageSchoolModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AttachedProduct">
           <Key>
             <PropertyRef Name="MainProductID" />
@@ -364,7 +364,8 @@
             <End Role="TagOfClient" EntitySet="TagOfClient" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LanguageSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -474,10 +475,10 @@
           <Property Name="DurationInSeconds" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Discount" Type="Double" />
+          <Property Name="MainImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ClientService" Relationship="Self.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
           <NavigationProperty Name="ServicePhoto" Relationship="Self.FK_ServicePhoto_Service" FromRole="Service" ToRole="ServicePhoto" />
-          <Property Name="MainImagePath" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ServicePhoto">
           <Key>
@@ -485,8 +486,8 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="PhotoByte" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Service" Relationship="Self.FK_ServicePhoto_Service" FromRole="ServicePhoto" ToRole="Service" />
-          <Property Name="PhotoByte" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -604,7 +605,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServicePhoto_Service">
-          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="Service" Type="Self.Service" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ServicePhoto" Type="Self.ServicePhoto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Service">
@@ -623,7 +626,7 @@
           <End Role="Client" Type="Self.Client" Multiplicity="*" />
           <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="LanguageSchoolEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LanguageSchoolEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Client" EntityType="Self.Client" />
           <EntitySet Name="ClientService" EntityType="Self.ClientService" />
           <EntitySet Name="DocumentByService" EntityType="Self.DocumentByService" />
@@ -686,7 +689,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LanguageSchoolModelContainer" CdmEntityContainer="LanguageSchoolEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LanguageSchoolModelContainer" CdmEntityContainer="LanguageSchoolEntities1">
           <EntitySetMapping Name="Client">
             <EntityTypeMapping TypeName="LanguageSchoolModel.Client">
               <MappingFragment StoreEntitySet="Client">
@@ -776,13 +779,13 @@
           <EntitySetMapping Name="Service">
             <EntityTypeMapping TypeName="LanguageSchoolModel.Service">
               <MappingFragment StoreEntitySet="Service">
-                <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="DurationInSeconds" ColumnName="DurationInSeconds" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="MainImagePath" ColumnName="MainImagePath" />
                 <ScalarProperty Name="MainImage" ColumnName="MainImage" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -790,9 +793,9 @@
           <EntitySetMapping Name="ServicePhoto">
             <EntityTypeMapping TypeName="LanguageSchoolModel.ServicePhoto">
               <MappingFragment StoreEntitySet="ServicePhoto">
-                <ScalarProperty Name="PhotoByte" ColumnName="PhotoByte" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="PhotoByte" ColumnName="PhotoByte" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

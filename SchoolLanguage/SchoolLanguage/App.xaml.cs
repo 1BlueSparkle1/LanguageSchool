@@ -15,7 +15,7 @@ namespace SchoolLanguage
     /// </summary>
     public partial class App : Application
     {
-        public static LanguageSchoolEntities db = new LanguageSchoolEntities();
+        public static LanguageSchoolEntities1 db = new LanguageSchoolEntities1();
         public static bool isAdmin = false;
         public static MainWindow mainWindow;
         public static AddEditServicePage servicePage;

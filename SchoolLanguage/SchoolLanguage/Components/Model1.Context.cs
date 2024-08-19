@@ -13,10 +13,10 @@ namespace SchoolLanguage.Components
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LanguageSchoolEntities : DbContext
+    public partial class LanguageSchoolEntities1 : DbContext
     {
-        public LanguageSchoolEntities()
-            : base("name=LanguageSchoolEntities")
+        public LanguageSchoolEntities1()
+            : base("name=LanguageSchoolEntities1")
         {
         }
     
